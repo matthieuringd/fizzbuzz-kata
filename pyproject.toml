@@ -17,7 +17,9 @@ build-backend = "hatchling.build"
 [dependency-groups]
 dev = [
     "marimo>=0.24.2",
+    "mypy>=2.4.0",
     "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
     "ruff>=0.16.8",
 ]
 
@@ -32,3 +34,24 @@ testpaths = ["tests"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/fizzbuzz_kata"]
+
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]   # pyflakes, pycodestyle, isort, pyupgrade, bugbear
+
+
+[tool.mypy]
+strict = true
+files = ["src"]
+
+[tool.coverage.run]
+source = ["src"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 90
+

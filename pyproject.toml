@@ -56,3 +56,5 @@ source = ["src"]
 show_missing = true
 fail_under = 90
 
+[project.scripts]
+fizzbuzz-kata = "fizzbuzz_kata.cli:main"

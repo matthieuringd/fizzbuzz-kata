@@ -1,14 +1,13 @@
-
-
 import marimo
 
 __generated_with = "0.25.1"
 app = marimo.App(width="medium")
 
 with app.setup:
+    from collections import Counter
+
     import marimo as mo
     import matplotlib.pyplot as plt
-    from collections import Counter
 
     from fizzbuzz_kata import fizzbuzz
 
@@ -52,21 +51,14 @@ def _():
 def _(end, start):
     lo, hi = sorted((start.value, end.value))
 
-    results = [
-        fizzbuzz(n)
-        for n in range(lo, hi + 1)
-    ]
+    results = [fizzbuzz(n) for n in range(lo, hi + 1)]
 
-    results
     return (results,)
 
 
 @app.cell
 def _(results):
-    counts = Counter(
-        "Number" if result.isdigit() else result
-        for result in results
-    )
+    counts = Counter("Number" if result.isdigit() else result for result in results)
 
     fig, ax = plt.subplots()
 
@@ -77,11 +69,8 @@ def _(results):
     )
 
     ax.set_ylabel("Count")
-    ax.set_title(
-        "Distribution of FizzBuzz outputs over the selected range"
-    )
+    ax.set_title("Distribution of FizzBuzz outputs over the selected range")
 
-    fig
     return
 
 

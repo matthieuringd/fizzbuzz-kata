@@ -1,10 +1,29 @@
-# Python-generated files
+# Virtual environment
+.venv/
+
+# Python cache
 __pycache__/
-*.py[oc]
+*.py[cod]
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Ruff / mypy caches
+.ruff_cache/
+.mypy_cache/
+
+# Marimo temporary/session files
+__marimo__/
+.marimo/
+*.py.json
+
+# Build artifacts
 build/
 dist/
-wheels/
-*.egg-info
+*.egg-info/
 
-# Virtual environments
-.venv
+# OS / editor noise
+.DS_Store
+Thumbs.db

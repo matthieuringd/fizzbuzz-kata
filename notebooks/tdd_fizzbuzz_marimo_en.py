@@ -254,7 +254,7 @@ def _():
 @app.cell
 def _():
     n_input = mo.ui.number(start=1, stop=1000, step=1, value=15, label="n")
-    n_input
+
     return (n_input,)
 
 
@@ -262,10 +262,10 @@ def _():
 def _(n_input):
     try:
         result = fizzbuzz(n_input.value)
-        output = mo.md(f"`fizzbuzz({n_input.value})` → **{result}**")
+        message = f"`fizzbuzz({n_input.value})` → **{result}**"
     except ValueError as e:
-        output = mo.md(f"⚠️ Error: {e}")
-    output
+        message = f"⚠️ Error: {e}"
+    mo.md(message)
 
 
 if __name__ == "__main__":
